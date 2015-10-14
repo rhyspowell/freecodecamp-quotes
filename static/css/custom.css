@@ -1,0 +1,52 @@
+body {
+	color: white;
+}
+
+.row {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#home {
+    padding: 50px 0;
+    background: url('/static/images/desk-laptop-notebook-pen.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 300px;
+}
+
+#about {
+    padding: 50px 0;
+    background: url('/static/images/people-street-sidewalk-jeans.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 500px;
+    font-size: 20px;
+}
+
+.mecontainer {
+	min-height: 400px;
+}
+
+.mecontainer  .img-responsive {
+    display: block;
+    width: auto;
+    max-height: 100%;
+}
+
+#portfolio {
+    padding: 50px 0;
+    background: url('/static/images/restaurant-people-alcohol-bar.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 600px;
+}
+
+#contact {
+    padding: 50px 0;
+    background: url('/static/images/startup-photos.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 500px;
+    color: #000;
+}
+
+#contact .btn {
+    margin-bottom: 10px;
+}
