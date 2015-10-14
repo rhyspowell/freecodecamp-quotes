@@ -1,0 +1,14 @@
+body {
+	color: black;
+    background-color: #E5E4E2;
+}
+
+.row {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.well {
+    border: 1px solid blue;
+    box-shadow: 10px 10px 5px #888888;
+}

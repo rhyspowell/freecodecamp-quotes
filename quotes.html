@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>Random Quotes</title>
+<!--	<script src="static/js/bootstrap.min.js"></script>-->
+	<script src="../freecodecamp/static/js/jquery-2.1.4.js"></script>
+
+	<script>
+	$( document ).ready(function() {
+
+		window.twttr = (function (d, s, id) {
+    		var t, js, fjs = d.getElementsByTagName(s)[0];
+    		if (d.getElementById(id)) return;
+    		js = d.createElement(s);
+    		js.id = id;
+    		js.src = "https://platform.twitter.com/widgets.js";
+    		fjs.parentNode.insertBefore(js, fjs);
+    		return window.twttr || (t = {
+        		_e: [],
+        		ready: function (f) {
+        		    t._e.push(f)
+        		}
+    		});
+		}(document, "script", "twitter-wjs"));
+
+		getQuote();
+
+		function getQuote() {
+			var quote = [
+				"Don't cry because it's over, smile because it happened.@Dr. Seuss",
+				"I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.@Marilyn Monroe",
+				"Be yourself; everyone else is already taken.@Oscar Wilde",
+				"Don’t sacrifice yourself too much, because if you sacrifice too much there’s nothing else you can give and nobody will care for you.@Karl Lagerfeld"];
+			randomQuote = quote[Math.floor(Math.random() * (quote.length))];
+			quoteTextAuthor = randomQuote.split("@");
+			$("#quoteText").text(quoteTextAuthor[0]);
+			$("#quoteAuthor").text(quoteTextAuthor[1]);
+
+			$('#container iframe').remove();
+
+			
+			tweetQuote = quoteTextAuthor[0]+" "+quoteTextAuthor[1]
+			if (tweetQuote.length > 110) {
+				tweetQuote = tweetQuote.slice(0,110)+"...";
+			};
+			twttr.ready(function (twttr) {
+			    twttr.widgets.createShareButton(
+			        'http://quotes.rhyspowell.com',
+			    document.getElementById('tweet'),
+			    function (el) {
+			        console.log("Button created.")
+			    }, {
+			        text: tweetQuote
+			    });
+			});
+
+			};
+
+			$("#button").on( "click", function() {
+    			getQuote();
+			});
+
+	});
+	</script>
+
+	<link rel=stylesheet type=text/css href="../freecodecamp/static/css/bootstrap.min.css">
+	<link rel=stylesheet type=text/css href="/static/css/quotes.css">
+  </head>
+  <body>
+  	<h1 class="text-center">Random Quotes</h1>
+  	<h3 class="text-center">A collection of random quotes that I have found on the web</h3>
+
+  	<div class="row">
+  		<div class="col-md-3">
+  		</div>
+  		<div class="col-md-6 well well-lg" id="randomquote">
+  			<p id="quoteText" class="text-center"></p>
+  			<p id="quoteAuthor" class="text-center"></p>
+  		</div>
+  		<div class="col-md-3">
+  		</div>
+  	</div>
+  	<div class="row">
+  		<div class="col-md-5">
+  		</div>
+  		<div class="col-md-2 well well-lg text-center">
+		  	<button id="button" class="btn btn-primary">New Quote</button>
+		</div>
+		<div class="col-md-5">
+  		</div>
+  	</div>
+  	<div class="row">
+  		<div class="col-md-5">
+  		</div>
+  		<div class="col-md-2 well well-lg text-center">
+  			<div id="tweet"></div>
+  		</div>
+		<div class="col-md-5">
+  		</div>
+  	<script>
+
+</script>
+  </body>
+</html>
